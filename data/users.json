@@ -1,6 +1,6 @@
 [
     {
       "Id": 1,
-      "query": "INSERT INTO Users(Id, Email, Password) VALUES(1, 'admin@example.com', '1234')"
+      "query": "INSERT INTO Users(Id, email, password) VALUES(1, 'admin@example.com', '1234')"
     }
    ]
