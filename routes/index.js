@@ -54,7 +54,7 @@ router.post("/login", async (req, res, next) => {
     let token;
     try {
         token = jwt.sign(
-            { email: existingUser.email },
+            { Email: existingUser.Email },
             process.env.TOKEN_SECRET,
             { expiresIn: "1h" }
         );
@@ -67,7 +67,7 @@ router.post("/login", async (req, res, next) => {
     res.status(200).json({
         success: true,
         data: {
-            email: existingUser.Email,
+            Email: existingUser.Email,
             token: token
         },
     });
