@@ -16,7 +16,7 @@ class UserService {
     async getOne(userEmail) {
 		const user = await this.User.findOne({
 			where: {
-				Email: userEmail,
+				email: userEmail,
 			},
 		});
 		return user;
