@@ -7,8 +7,8 @@ class UserService {
     async create(email, password) {
         return this.User.create(
             {
-                Email: email,
-                Password: password
+                email: email,
+                password: password
             }
         ) 
     }
@@ -16,7 +16,7 @@ class UserService {
     async getOne(userEmail) {
 		const user = await this.User.findOne({
 			where: {
-				Email: userEmail,
+				email: userEmail,
 			},
 		});
 		return user;

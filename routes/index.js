@@ -46,7 +46,7 @@ router.post("/login", async (req, res, next) => {
 
     const existingUser = await userService.getOne(userEmail);
 
-    if (!existingUser || existingUser.Password !== userPassword) {
+    if (!existingUser || existingUser.password !== userPassword) {
         const error = new Error("Incorrect Credentials");
         return next(error);
     }
@@ -54,7 +54,7 @@ router.post("/login", async (req, res, next) => {
     let token;
     try {
         token = jwt.sign(
-            { Email: existingUser.Email },
+            { email: existingUser.email },
             process.env.TOKEN_SECRET,
             { expiresIn: "1h" }
         );
@@ -67,7 +67,7 @@ router.post("/login", async (req, res, next) => {
     res.status(200).json({
         success: true,
         data: {
-            Email: existingUser.Email,
+            email: existingUser.email,
             token: token
         },
     });
